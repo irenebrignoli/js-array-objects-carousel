@@ -81,24 +81,20 @@ nextDom.addEventListener('click',
 
   function(){
 
-    if (imageOn < imgsBoxDom.length - 1 ){ //se il valore di imagOn è minore della lunghezza totale raggiunta
-
-      imgsBoxDom [imageOn].classList.remove('show'); //nascondi img
-      circleDom [imageOn].classList.remove('circle-current');
-      
-      imageOn++;
-
-      imgsBoxDom [imageOn].classList.add('show'); //mostra prossima img
-      circleDom [imageOn].classList.add('circle-current');
-
-      prevDom.classList.remove('hide'); //mostra pulsante per tornare indietro
-
-      if (imageOn == imgsBoxDom.length - 1){ //se il valore di imagOn è uguale alla lunghezza totale della lista 
-        nextDom.classList.add('hide'); //nascondi pulsante next
-      }
-
+    imgsBoxDom [imageOn].classList.remove('show'); 
+    circleDom [imageOn].classList.remove('circle-current');
+    
+    if (imageOn == imgsBoxDom.length - 1){ 
+      imageOn = 0;
+    }else{
+      imageOn ++;
     }
 
+    imgsBoxDom [imageOn].classList.add('show'); 
+    circleDom [imageOn].classList.add('circle-current');
+
+    //prevDom.classList.remove('hide');
+    //nextDom.classList.add('hide'); 
   }
 
 );
@@ -107,26 +103,24 @@ prevDom.addEventListener('click',
 
   function(){
 
-    if(imageOn > 0){
+    imgsBoxDom [imageOn].classList.remove('show');
+    circleDom [imageOn].classList.remove('circle-current');
 
-      imgsBoxDom [imageOn].classList.remove('show');
-      circleDom [imageOn].classList.remove('circle-current');
-
+    if (imageOn == 0){ 
+      imageOn = imgsBoxDom.length - 1;
+    }else{
       imageOn--;
-
-      imgsBoxDom [imageOn].classList.add('show');
-      circleDom [imageOn].classList.add('circle-current');
-
-      nextDom.classList.remove('hide');
-
-      if (imageOn == 0){
-        prevDom.classList.add('hide');
-      }
     }
+    
+    imgsBoxDom [imageOn].classList.add('show');
+    circleDom [imageOn].classList.add('circle-current');
+
+    //nextDom.classList.remove('hide');
+    //prevDom.classList.add('hide');
+
   }
 
-
-)
+);
 
 
 
