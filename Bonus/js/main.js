@@ -54,7 +54,9 @@ for(let i = 0; i < imgCarousel.length; i++){
                      </div>`;
   sliderContent += newImgBox;
 
-  const newcircle = `<div class="circle"></div>`;
+  const newcircle = `<div class="circle">
+                      <img src="${currentObject.image}" class="circle-img" alt="image${[i]}">
+                    </div>`;
   circleContent += newcircle;
   
 }
