@@ -1,5 +1,5 @@
 
-const images = [
+const imgCarousel = [
   {
       image: 'img/1.webp',
       title: 'Marvel\'s Spiderman Miles Morale',
@@ -25,11 +25,7 @@ const images = [
 
 
 
-
-
-
-//imposto il carousel inserendo gli elementi div ocn array
-
+/*
 const imgCarousel = [
   'img/1.webp',
   'img/2.webp',
@@ -37,9 +33,9 @@ const imgCarousel = [
   'img/4.webp',
   'img/5.webp'
 ];
+*/
 
 const imgListDom = document.querySelector('.img-list');
-
 const circleContainerDom = document.querySelector('.circle-container');
 
 let sliderContent = ''; //creo un contenuto per la mia lista di img
@@ -47,25 +43,30 @@ let circleContent = ''; //creo un contenuto per la il cicrlce container
 
 for(let i = 0; i < imgCarousel.length; i++){
 
-  const newImgBox = `<div class="img-box">
-                  <img src="${imgCarousel[i]}" class="image" alt="image${[i]}">
-                  </div>`;
+  let currentObject = imgCarousel[i];
 
-  sliderContent += newImgBox; //il cotnenuto dento img-list è uguale al nuovo elemento div
+  const newImgBox = `<div class="img-box">
+                      <img src="${currentObject.image}" class="image" alt="image${[i]}">
+                      <div class="info-box">
+                        <h1 class="title-box">${currentObject.title}</h1>
+                        <div class="text-box">${currentObject.text}</div>
+                      </div>
+                     </div>`;
+  sliderContent += newImgBox;
 
   const newcircle = `<div class="circle"></div>`;
-
   circleContent += newcircle;
-
+  
 }
 
 imgListDom.innerHTML = sliderContent;
 circleContainerDom.innerHTML = circleContent;
 
-//attiviamo le img nel carousel
-
 const imgsBoxDom = document.getElementsByClassName('img-box');
 const circleDom = document.getElementsByClassName('circle');
+
+
+//attiviamo le img nel carousel
 
 let imageOn = 0; //creo una variabile per andare a modificare lo stato attivo dell img
 imgsBoxDom [imageOn].classList.add('show'); //se è in ON gli do la classe show
@@ -126,3 +127,6 @@ prevDom.addEventListener('click',
 
 
 )
+
+
+
